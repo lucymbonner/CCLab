@@ -1,0 +1,108 @@
+/**********************************************/
+/*normalize css for all browsers, reset values*/
+/**********************************************/
+* {
+	padding:0;
+	margin: 0;
+}
+
+html, body {
+	margin: 0;	
+	padding: 0;	
+	height: 100%;
+	width: 100%; 
+}
+
+fieldset {
+	border: none;
+	display: block;
+}
+/**********************************************/
+
+
+body {
+	/*background-image: url("../img/dogs.jpg");*/
+	font-family: 'Quicksand';
+}
+
+h2 {
+	font-size: 2em;
+	color: #b30000;
+}
+h3 {
+	font-size: 1em;
+	color: #2abbaa;
+}
+
+h4 {
+	font-size: 1em;
+	color: #2abbaa;
+	margin-top: 3vh;
+	text-align: center;
+}
+
+p {
+	font-size: 1em;
+	color: #424242;
+}
+
+#map {
+	position: absolute;
+	width: 96vw;
+	margin: 2vw;
+	height: 40vh;
+}
+
+#lists {
+	position: absolute;
+	width: 75vw;
+	height: 50vh;
+	margin-top: 50vh;
+}
+
+.bars {
+	position: absolute;
+	width: 15vw;
+	height: 40vh;
+	bottom: 0;
+	padding: 5px;
+	margin-left: 5vw;
+}
+
+.food {
+	position: absolute;
+	width: 15vw;
+	height: 40vh;
+	bottom: 0;
+	padding: 5px;
+	margin-left: 25vw;
+}
+
+.parks {
+	position: absolute;
+	width: 15vw;
+	height: 40vh;
+	bottom: 0;
+	padding: 5px;
+	margin-left: 45vw;
+}
+
+.shops {
+	position: absolute;
+	width: 15vw;
+	height: 40vh;
+	bottom: 0;
+	padding: 5px;
+	margin-left: 65vw;
+}
+
+#form {
+	position: absolute;
+	width: 25vw;
+	height: 40vh;
+	margin-left: 75vw;
+	padding: 5px;
+	padding-top: 50px;
+	bottom: 0;
+}
+

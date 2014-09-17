@@ -1,0 +1,73 @@
+<!-- //Dog Friendly Places in NYC
+
+//map API from googlemaps
+
+//Leaflet mapping library
+
+//enter in new dog-friendly location
+// name, location, type, comments fillable form input
+
+//save form input into new map location
+
+//save form input into Master List
+
+//save form input to indiv type List
+
+//list of places organized by type, neighborhood - searchable
+
+//HTML:
+
+//title div
+//map
+	//button for each type of place to filter results
+//fillable form
+//display 3 columns: title, list of places -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Dog Friendly</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	<!-- <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.0/mapbox.css' rel='stylesheet' /> -->
+	<link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<div id="main">
+		<div class="title"></div>
+		<div id="map"></div>
+		<div id="lists">
+			<div class="bars">
+				<h2>BARS</h2>
+				<h3 id="barTitle"></h3>
+				<p id="barList"></p>
+			</div>
+			<div class="food">
+				<h2>FOOD</h2>
+				<h3 id="foodTitle"></h3>
+				<p id="foodList"></p>
+			</div>
+			<div class="parks">
+				<h2>PARKS</h2>
+				<h3 id="parkTitle"></h3>
+				<p id="parkList"></p>
+			</div>
+			<div class="shops">
+				<h2>SHOPS</h2>
+				<h3 id="shopTitle"></h3>
+				<p id="shopList"></p>
+			</div>
+		</div>
+		<div id="form">
+			<h4>Submit a new<br>Dog Friendly location</h4>
+		</div>
+	</div>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh4OZxp7u-MKxVzIjQBu995S0zJP3-wgE"></script>
+	<script type="text/javascript" src="./js/jquery-1.11.1.min.js"></script>
+	 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	 <!--<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.0/mapbox.js'></script> -->
+	<script type="text/javascript" src="./js/main.js"></script>
+</body>
+</html>
