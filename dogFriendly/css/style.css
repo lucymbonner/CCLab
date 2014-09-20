@@ -50,6 +50,7 @@ p {
 	position: absolute;
 	width: 96vw;
 	margin: 2vw;
+	margin-bottom: 0;
 	height: 40vh;
 }
 
@@ -63,7 +64,7 @@ p {
 .bars {
 	position: absolute;
 	width: 15vw;
-	height: 40vh;
+	height: 50vh;
 	bottom: 0;
 	padding: 5px;
 	margin-left: 5vw;
@@ -72,7 +73,7 @@ p {
 .food {
 	position: absolute;
 	width: 15vw;
-	height: 40vh;
+	height: 50vh;
 	bottom: 0;
 	padding: 5px;
 	margin-left: 25vw;
@@ -81,7 +82,7 @@ p {
 .parks {
 	position: absolute;
 	width: 15vw;
-	height: 40vh;
+	height: 50vh;
 	bottom: 0;
 	padding: 5px;
 	margin-left: 45vw;
@@ -90,7 +91,7 @@ p {
 .shops {
 	position: absolute;
 	width: 15vw;
-	height: 40vh;
+	height: 50vh;
 	bottom: 0;
 	padding: 5px;
 	margin-left: 65vw;
@@ -99,10 +100,19 @@ p {
 #form {
 	position: absolute;
 	width: 25vw;
-	height: 40vh;
+	height: 50vh;
 	margin-left: 75vw;
 	padding: 5px;
 	padding-top: 50px;
 	bottom: 0;
+	text-align: center;
+}
+
+.placeTitle {
+	/*position: absolute;*/
+	width: 15vw;
+	height: 30px;
+	padding: 5px;
+	text-align: left;
 }
 

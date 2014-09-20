@@ -41,27 +41,35 @@
 		<div id="lists">
 			<div class="bars">
 				<h2>BARS</h2>
-				<h3 id="barTitle"></h3>
-				<p id="barList"></p>
+				<div id="barList"></div>
 			</div>
 			<div class="food">
-				<h2>FOOD</h2>
-				<h3 id="foodTitle"></h3>
-				<p id="foodList"></p>
+				<h2>EATS</h2>
+				<div id="foodList"></div>
 			</div>
 			<div class="parks">
 				<h2>PARKS</h2>
-				<h3 id="parkTitle"></h3>
-				<p id="parkList"></p>
+				<div id="parkList"></div>
 			</div>
 			<div class="shops">
 				<h2>SHOPS</h2>
-				<h3 id="shopTitle"></h3>
-				<p id="shopList"></p>
+				<div id="shopList"></div>
 			</div>
 		</div>
 		<div id="form">
-			<h4>Submit a new<br>Dog Friendly location</h4>
+			<h4>Submit a new<br>Dog-Friendly location</h4>
+			<br>
+			<form>
+				Name: <input type="text" id="placeTitle"><br><br>
+				Type: <select id="placeType">
+					<option value="bar">Bar</option>
+					<option value="food">Eats</option>
+					<option value="park">Park</option>
+					<option value="shop">Shops</option>
+					</select><br><br>
+				Description: <input type="text" id="placeDescription"><br><br>
+				<input type="submit" id="addButton" value=" Submit ">
+			</form>
 		</div>
 	</div>
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh4OZxp7u-MKxVzIjQBu995S0zJP3-wgE"></script>
