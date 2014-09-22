@@ -63,55 +63,57 @@ p {
 
 .bars {
 	position: absolute;
-	width: 15vw;
+	width: 20vw;
 	height: 50vh;
 	bottom: 0;
 	padding: 5px;
 	margin-left: 5vw;
 }
 
+.ui-dialog{
+	height: 350px !important;
+}
 .food {
 	position: absolute;
-	width: 15vw;
+	width: 20vw;
 	height: 50vh;
 	bottom: 0;
 	padding: 5px;
-	margin-left: 25vw;
+	margin-left: 30vw;
 }
 
 .parks {
 	position: absolute;
-	width: 15vw;
+	width: 20vw;
 	height: 50vh;
 	bottom: 0;
 	padding: 5px;
-	margin-left: 45vw;
+	margin-left: 55vw;
 }
 
 .shops {
 	position: absolute;
-	width: 15vw;
+	width: 20vw;
 	height: 50vh;
 	bottom: 0;
 	padding: 5px;
-	margin-left: 65vw;
+	margin-left: 80vw;
 }
 
 #form {
 	position: absolute;
-	width: 25vw;
-	height: 50vh;
-	margin-left: 75vw;
+	top: 50px;
+	width: 30vw;
+	height: 30vh;
+	margin: 0 auto;
 	padding: 5px;
-	padding-top: 50px;
-	bottom: 0;
 	text-align: center;
 }
 
 .placeTitle {
 	/*position: absolute;*/
 	width: 15vw;
-	height: 30px;
+	height: 20px;
 	padding: 5px;
 	text-align: left;
 }
