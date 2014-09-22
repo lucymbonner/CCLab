@@ -28,6 +28,7 @@ body {
 h2 {
 	font-size: 2em;
 	color: #b30000;
+	margin-top: 2vh;
 }
 h3 {
 	font-size: 1em;
@@ -51,53 +52,70 @@ p {
 	width: 96vw;
 	margin: 2vw;
 	margin-bottom: 0;
-	height: 40vh;
+	height: 46vh;
+	top: 0;
+}
+#title img{
+	position: relative;
+	display: inline-block;
+	width: auto;
+	height: auto;
+	top: 55vh;
+	/*margin-top: 50vh;*/
+	padding-left: 2vw;
+}
+
+#title {
+	position: relative;
+	display: inline-block;
+	width: 25vw;
 }
 
 #lists {
+	display: inline-block;
 	position: absolute;
 	width: 75vw;
-	height: 50vh;
-	margin-top: 50vh;
-}
-
-.bars {
-	position: absolute;
-	width: 20vw;
-	height: 50vh;
-	bottom: 0;
-	padding: 5px;
-	margin-left: 5vw;
+	height: 48vh;
+	margin-top: 55vh;
+	/*margin-left: 25vw;*/
 }
 
 .ui-dialog{
 	height: 350px !important;
 }
-.food {
+
+.bars {
 	position: absolute;
-	width: 20vw;
+	width: 15vw;
 	height: 50vh;
 	bottom: 0;
-	padding: 5px;
-	margin-left: 30vw;
+}
+
+.food {
+	position: absolute;
+	width: 15vw;
+	height: 50vh;
+	bottom: 0;
+	/*padding: 5px;*/
+	margin-left: 20vw;
 }
 
 .parks {
 	position: absolute;
-	width: 20vw;
+	width: 15vw;
 	height: 50vh;
 	bottom: 0;
-	padding: 5px;
-	margin-left: 55vw;
+	/*padding: 5px;*/
+	margin-left: 40vw;
 }
 
 .shops {
 	position: absolute;
-	width: 20vw;
+	width: 15vw;
 	height: 50vh;
 	bottom: 0;
-	padding: 5px;
-	margin-left: 80vw;
+	/*padding: 5px;*/
+	margin-left: 60vw;
 }
 
 #form {
@@ -115,6 +133,20 @@ p {
 	width: 15vw;
 	height: 20px;
 	padding: 5px;
+	padding-left: 0px;
 	text-align: left;
 }
 
+#deleteButton {
+	height:20px;
+	width:20px;
+	float: right;
+	margin-top: -20px;
+	background-color: #fff;
+	border:2px solid #2abbaa;
+	color:#2abbaa;
+	padding: 3px;
+	cursor: pointer;
+	text-align: center;
+	z-index: 5;
+}

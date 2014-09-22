@@ -18,6 +18,36 @@ var newPark = " ";
 var newShop = " ";
 
 var newMarker;
+var markerLayer;
+
+//DELETE PLACES
+var deleteBar = function(e){
+	//make a new ariable for the bar you want to delete
+	var barNumber = e.target.parentElement.id;
+	//from that specified task, delete one bar from the array
+	barArray.splice(barNumber, 1);
+	console.log(barArray);
+	updateLocalStorageBars();
+	updateBars();
+};
+var deleteFood = function(e){
+	var foodNumber = e.target.parentElement.id;
+	foodArray.splice(foodNumber, 1);
+	updateLocalStorageFood();
+	updateFoods();
+};
+var deletePark = function(e){
+	var parkNumber = e.target.parentElement.id;
+	parkArray.splice(parkNumber, 1);
+	updateLocalStorageParks();
+	updateParks();
+};
+var deleteShop = function(e){
+	var shopNumber = e.target.parentElement.id;
+	shopArray.splice(shopNumber, 1);
+	updateLocalStorageShops();
+	updateShops();
+};
 
 //save lists to localStorage
 var updateLocalStorageBars = function(){
@@ -38,18 +68,33 @@ var updateLocalStorageShops = function(){
 	localStorage.setItem('parkList', parkListString);
 };
 
+//cannot save cyclical items to localStorage- decycle library full of "deprecate" errors
+// var updateLocalStorageMarkers = function(){
+// 	var markerLayerString = JSON.stringify(JSON.decycle(markerLayer));
+// 	localStorage.setItem('markerLayer', markerLayer);
+// };
+
 //update functions for each type of array list 
 var updateBars = function(){
 	$('#barList').empty();
-
 	//check if there is a barList in localStorage
 	var barListString = localStorage.getItem('barList');
 	if (barListString){
 		barArray = JSON.parse(barListString);
 	};
 	$(barArray).each(function(i){
+		var deleteButton = $('<button/>');
+		deleteButton.attr('id', 'deleteButton').text('-').click(function(e){
+			deleteBar(e);
+		});
+		//creating markers here to append to the div (then could save in storage
+		// AND make titles clickable) made LEAFLET mad. Cannot do.
+		// newMarker.bindPopup("<b>" + newBar + "</b><br>" + placeDescription);
+		// newMarker.addTo(markerLayer);
 		var newBarTitle = $('<div/>');
 		newBarTitle.attr('id', i).addClass('placeTitle').html('<h3>' + this + '</h3>')
+		newBarTitle.append(newMarker);
+		newBarTitle.append(deleteButton);
 		$('#barList').append(newBarTitle);
 	});
 };
@@ -61,8 +106,13 @@ var updateFoods = function(){
 		foodArray = JSON.parse(foodListString);
 	};
 	$(foodArray).each(function(i){
+		var deleteButton = $('<button/>');
+		deleteButton.attr('id', 'deleteButton').text('-').click(function(e){
+			deleteFood(e);
+		});
 		var newFoodTitle = $('<div/>');
 		newFoodTitle.attr('id', i).addClass('placeTitle').html('<h3>' + this + '</h3>')
+		newFoodTitle.append(deleteButton);
 		$('#foodList').append(newFoodTitle);
 	});
 };
@@ -74,8 +124,13 @@ var updateParks = function(){
 		parkArray = JSON.parse(parkListString);
 	};
 	$(parkArray).each(function(i){
+		var deleteButton = $('<button/>');
+		deleteButton.attr('id', 'deleteButton').text('-').click(function(e){
+			deletePark(e);
+		});
 		var newParkTitle = $('<div/>');
 		newParkTitle.attr('id', i).addClass('placeTitle').html('<h3>' + this + '</h3>')
+		newParkTitle.append(deleteButton);
 		$('#parkList').append(newParkTitle);
 	});
 };
@@ -87,11 +142,25 @@ var updateShops = function(){
 		shopArray = JSON.parse(shopListString);
 	};
 	$(shopArray).each(function(i){
+		var deleteButton = $('<button/>');
+		deleteButton.attr('id', 'deleteButton').text('-').click(function(e){
+			deleteShop(e);
+		});
 		var newShopTitle = $('<div/>');
 		newShopTitle.attr('id', i).addClass('placeTitle').html('<h3>' + this + '</h3>')
+		newShopTitle.append(deleteButton);
+		//append description var ?
 		$('#shopList').append(newShopTitle);
 	});
 };
+
+//retrieve stored markers
+// var getStoredMarkers = function(){
+// 	var markerLayerString = JSON.parse(localStorage.getItem(markerLayer));
+// 	if (markerLayerString){
+// 		markerLayer = JSON.retrocycle(markerLayerString);
+// 	};
+// };
 
 //new place to add to a list from the form
 var savePlace = function(){
@@ -104,6 +173,8 @@ var savePlace = function(){
 		$('#placeTitle').val('');
 		$('#placeDescription').val('');
 		newMarker.bindPopup("<b>" + newBar + "</b><br>" + placeDescription);
+		newMarker.addTo(markerLayer);
+		// updateLocalStorageMarkers();
 		updateLocalStorageBars();
 		updateBars();
 		console.log(barArray);
@@ -113,6 +184,8 @@ var savePlace = function(){
 		$('#placeTitle').val('');
 		$('#placeDescription').val('');
 		newMarker.bindPopup("<b>" + newFood + "</b><br>" + placeDescription);
+		newMarker.addTo(markerLayer);
+		// updateLocalStorageMarkers();
 		updateLocalStorageFood();
 		updateFoods();
 		console.log(foodArray);
@@ -122,6 +195,8 @@ var savePlace = function(){
 		$('#placeTitle').val('');
 		$('#placeDescription').val('');
 		newMarker.bindPopup("<b>" + newPark + "</b><br>" + placeDescription);
+		newMarker.addTo(markerLayer);
+		// updateLocalStorageMarkers();
 		updateLocalStorageParks();
 		updateParks();
 		console.log(parkArray);
@@ -131,6 +206,8 @@ var savePlace = function(){
 		$('#placeTitle').val('');
 		$('#placeDescription').val('');
 		newMarker.bindPopup("<b>" + newShop + "</b><br>" + placeDescription);
+		newMarker.addTo(markerLayer);
+		// updateLocalStorageMarkers();
 		updateLocalStorageShops();
 		updateShops();
 		console.log(shopArray);
@@ -181,6 +258,9 @@ markerSchool.bindPopup("<b>Bo\'s New School!</b><br>D12 is a puppy-friendly plac
 var markerHome = new L.marker([40.695, -73.93]).addTo(map);
 markerHome.bindPopup("<b>Bo\'s House!</b><br>Bo lives here with Monroe.").openPopup();
 
+var markerLayer = L.layerGroup([markerSchool, markerHome])
+	.addTo(map);
+
 function onMapClick(e) {
 	console.log("mapClicked. e: ", e);
 	newMarker = new L.marker(e.latlng).addTo(map);
@@ -193,6 +273,8 @@ function onMapClick(e) {
 //init
 var init = function() {
 	console.log('Bobo');
+
+	// getStoredMarkers();
 
 	$('#addButton').on('click', function(e){
 		e.preventDefault();
