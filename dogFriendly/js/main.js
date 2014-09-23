@@ -22,9 +22,7 @@ var markerLayer;
 
 //DELETE PLACES
 var deleteBar = function(e){
-	//make a new ariable for the bar you want to delete
 	var barNumber = e.target.parentElement.id;
-	//from that specified task, delete one bar from the array
 	barArray.splice(barNumber, 1);
 	console.log(barArray);
 	updateLocalStorageBars();
@@ -51,7 +49,6 @@ var deleteShop = function(e){
 
 //save lists to localStorage
 var updateLocalStorageBars = function(){
-	//stringify barArray and save it as barList in local storage
 	var barListString = JSON.stringify(barArray);
 	localStorage.setItem('barList', barListString);
 };
@@ -68,9 +65,10 @@ var updateLocalStorageShops = function(){
 	localStorage.setItem('parkList', parkListString);
 };
 
-//cannot save cyclical items to localStorage- decycle library full of "deprecate" errors
+// *** cannot save circular items (layerGroup) to localStorage- decycle library 
+// full of "deprecate" errors ***
 // var updateLocalStorageMarkers = function(){
-// 	var markerLayerString = JSON.stringify(JSON.decycle(markerLayer));
+// 	var markerLayerString = JSON.stringify(markerLayer);
 // 	localStorage.setItem('markerLayer', markerLayer);
 // };
 
@@ -88,7 +86,7 @@ var updateBars = function(){
 			deleteBar(e);
 		});
 		//creating markers here to append to the div (then could save in storage
-		// AND make titles clickable) made LEAFLET mad. Cannot do.
+		// AND make titles clickable) made LEAFLET angry. Cannot do.
 		// newMarker.bindPopup("<b>" + newBar + "</b><br>" + placeDescription);
 		// newMarker.addTo(markerLayer);
 		var newBarTitle = $('<div/>');
@@ -154,11 +152,11 @@ var updateShops = function(){
 	});
 };
 
-//retrieve stored markers
+//retrieve stored markers ***JSON IS ANGRY!***
 // var getStoredMarkers = function(){
-// 	var markerLayerString = JSON.parse(localStorage.getItem(markerLayer));
+// 	var markerLayerString = localStorage.getItem(markerLayer);
 // 	if (markerLayerString){
-// 		markerLayer = JSON.retrocycle(markerLayerString);
+// 		markerLayer = JSON.parse(markerLayerString);
 // 	};
 // };
 
@@ -174,7 +172,7 @@ var savePlace = function(){
 		$('#placeDescription').val('');
 		newMarker.bindPopup("<b>" + newBar + "</b><br>" + placeDescription);
 		newMarker.addTo(markerLayer);
-		// updateLocalStorageMarkers();
+		updateLocalStorageMarkers();
 		updateLocalStorageBars();
 		updateBars();
 		console.log(barArray);
@@ -227,9 +225,8 @@ function addPlace() {
 
 var dialog = $("#form").dialog({
       autoOpen: false,
-      // height: "300 !important", /*height does not work, gets overridden by "auto" in ui.js file */
-      // minHeight: 300,
-      // width: 400,
+      // height: "300 !important", 
+      /*height does not work, gets overridden by "auto" in ui.js file */
       minWidth: 350,
       modal: true,
     });
@@ -258,7 +255,7 @@ markerSchool.bindPopup("<b>Bo\'s New School!</b><br>D12 is a puppy-friendly plac
 var markerHome = new L.marker([40.695, -73.93]).addTo(map);
 markerHome.bindPopup("<b>Bo\'s House!</b><br>Bo lives here with Monroe.").openPopup();
 
-var markerLayer = L.layerGroup([markerSchool, markerHome])
+var markerLayer = L.geoJson([markerSchool, markerHome])
 	.addTo(map);
 
 function onMapClick(e) {
