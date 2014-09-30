@@ -24,7 +24,7 @@ function preload() {
 	fangs = loadImage("./img/fangsCardboard.png");
 	yesButton = loadImage("./img/yesButton.png");
 	noButton = loadImage("./img/noButton.png");
-	tombstone = loadImage("./img/tombstoneSmall.png");
+	tombstone = loadImage("./img/tombstoneC.png");
 	grail = loadImage("./img/grail.png");
 	werewolf = loadImage("./img/wolfC.png");
 	lilZombie = loadImage("./img/zombieSmall.png");
