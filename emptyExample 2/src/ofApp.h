@@ -31,5 +31,7 @@ public:
     int fieldHeight, fieldWidth, resolution;
     int posX, posY;
     
+    int angle;
+    
     
 };

@@ -26,24 +26,24 @@ void Bo::move() {
     
 //    angle++;
     
-    angle *= boVelocity;
+    angle = sin(ofGetElapsedTimef()*2);
     
     //rotate back and forth! need velocity (+ & - values for direction)
     
-    if (angle <= 315) {
-        angle = 315;
-        boVelocity *= -1;
-    }
-    if (angle >= 45) {
-        angle = 45;
-        boVelocity *= -1;
-    }
-    
-    ofPushMatrix();
-    ofTranslate(posX+50, posY+71);
-    ofRotate(angle),
-    BoFace.draw(posX+50, posY+71);
-    ofPopMatrix();
+//    if (angle <= 315) {
+//        angle = 315;
+//        boVelocity *= -1;
+//    }
+//    if (angle >= 45) {
+//        angle = 45;
+//        boVelocity *= -1;
+//    }
+//    
+//    ofPushMatrix();
+//    ofTranslate(posX+50, posY+71);
+//    ofRotate(angle),
+//    BoFace.draw(posX+50, posY+71);
+//    ofPopMatrix();
     
 //    BoFace.draw(posX, posY);
 
@@ -53,8 +53,8 @@ void Bo::display() {
     
     ofPushMatrix();
     ofTranslate(posX, posY);
-    angle = 0;
     ofRotate(angle);
+    ofSetRectMode(OF_RECTMODE_CENTER);
     BoFace.draw(posX, posY);
     ofPopMatrix();
 }

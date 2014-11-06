@@ -18,7 +18,7 @@ void ofApp::setup(){
     
     fieldHeight = ofGetHeight();
     fieldWidth  = ofGetWidth();
-    resolution = 50;
+    resolution = 95;
     
 //    int columns = fieldWidth / resolution;
 //    int rows = fieldHeight / resolution;
@@ -36,12 +36,13 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     
-    //    oneBo.move();
+    angle = sin(ofGetElapsedTimef()*5);
     
     //rotate all the BoFaces, then move all the bees
     
     for (int i = 0; i < NUMBOS; i++) {
-        boFaces[i].move();
+        //boFaces[i].move();
+        boFaces[i].angle = sin(ofGetElapsedTimef()*i);
     }
     
     for (int i = 0; i < NUMBEES; i++) {
@@ -96,10 +97,14 @@ void ofApp::mousePressed(int x, int y, int button){
     int rows = fieldHeight / resolution;
     
     for (int i = 0; i < NUMBOS; i++) {
+//        ofPushMatrix();
         posX = i % columns * resolution;
         posY = i / columns * resolution;
+//        ofTranslate(posX, posY);
+//        ofRotate(angle);
         boFaces[i].setup();
         boFaces[i].grid(posX, posY);
+//        ofPopMatrix();
     }
     
 //        for (int i = 1; i < NUMBOS; i++) {
